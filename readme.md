@@ -1,27 +1,48 @@
-## Laravel PHP Framework
+## Laravel Modular Boilerplate
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+A *Laravel 5.1* boilerplate for creating modular applications. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+An article explaining how it works and how can you use it can be found through this blog post [Creating a Modular Application in Laravel 5.1](http://kamranahmed.info/blog/2015/12/03/creating-a-modular-application-in-laravel/)
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## How to Use
+For a detailed introduction, please ](http://kamranahmed.info/blog/2015/12/03/creating-a-modular-application-in-laravel/). However, below are the steps to get you up to speed:
 
-## Official Documentation
+- Clone the repository 
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+```bash
+git clone http://github.com/kamranahmedse/laravel-modular-boilerplate
+```
 
-## Contributing
+- Install dependencies via composer
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+```bash
+composer install
+```
 
-## Security Vulnerabilities
+- The application is ready. A dummy module called `ModuleOne` has already been added to give you an idea about how it works. The module has some routes, a controller and a dummy model as well. Considering that you are serving the repository via `php artisan serve` at port `8000` you can access the dummy routes placed in `app/Modules/ModuleOne/routes.php` via:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```php
+localhost:8000/module-one
+localhost:8000/module-one/model-test
+``` 
 
-### License
+## Adding your Modules
+- Create a directory with your module name e.g. `MyAwesomeModule` inside the `app/Modules` directory. Inside the directory create a file called `routes.php` for the routes and create the directories `Controllers`, `Models` and views for your controllers, models and views respectively.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+- Open up the file `config/module.php`. This is the file where you will be registring your modules. Add your module name in the `modules` array like this:
+
+```php
+return  [
+   'modules' => [
+       'ModuleOne',
+       'MyAwesomeModule'
+   ]
+];
+```
+
+- Inside the `app\Modules\MyAwesomeModule\Controllers` directory, create your controllers with the namespace set to `App\Modules\MyAwesomeModule\Controllers`. In the same way, create the models inside `app\Modules\MyAwesomeModule\Models` directory with the namespace set to `App\Modules\MyAwesomeModule\Models`. And create the view files in the `app\Modules\MyAwesomeModule\Views` directory. And that is it.
+
+- For a detailed how-to, I would recommend you to [read this article](http://kamranahmed.info/blog/2015/12/03/creating-a-modular-application-in-laravel/). Also you can go through the existing module i.e. `ModuleOne` which has been added just for your reference.
+
+
+
