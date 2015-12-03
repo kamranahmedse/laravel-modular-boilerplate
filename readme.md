@@ -1,6 +1,6 @@
 ## Laravel Modular Boilerplate
 
-A **Laravel 5.* ** boilerplate for creating modular applications. 
+A **Laravel 5.*** boilerplate for creating modular applications. 
 
 An article explaining how it was created how can you use it can be found through this blog post [Creating a Modular Application in Laravel 5.1](http://kamranahmed.info/blog/2015/12/03/creating-a-modular-application-in-laravel/)
 
