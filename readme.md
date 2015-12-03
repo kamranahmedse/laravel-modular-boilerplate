@@ -18,6 +18,11 @@ git clone http://github.com/kamranahmedse/laravel-modular-boilerplate
 ```bash
 composer install
 ```
+- Create a `.env` file, maybe by duplication `.env.example` which is already there.
+- Generate the key:
+```bash
+php artisan key:generate
+```
 
 - The application is ready. A dummy module called `ModuleOne` has already been added to give you an idea about how it works. The module has some routes, a controller and a dummy model as well. Considering that you are serving the repository via `php artisan serve` at port `8000` you can access the dummy routes placed in `app/Modules/ModuleOne/routes.php` via:
 
