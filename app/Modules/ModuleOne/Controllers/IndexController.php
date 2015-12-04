@@ -6,7 +6,7 @@ use App\Modules\ModuleOne\Models\TestModel;
 /**
  * IndexController
  *
- * Controller to hose all the functionality directly
+ * Controller to house all the functionality directly
  * related to the ModuleOne.
  */
 class IndexController extends Controller
